@@ -8,7 +8,7 @@ namespace BecomeLegend.Items.Weapons
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("This ammo is used by all primary ammo.");
+            Tooltip.SetDefault("This ammo is used by all primary guns.");
         }
 
         public override void SetDefaults()
@@ -22,7 +22,7 @@ namespace BecomeLegend.Items.Weapons
             item.knockBack = 1.5f;
             item.value = 10;
             item.rare = 2;
-            item.shoot = mod.ProjectileType("ExampleBullet");   //The projectile shoot when your weapon using this ammo
+            item.shoot = 10;   //The projectile shoot when your weapon using this ammo
             item.shootSpeed = 16f;                  //The speed of the projectile
             item.ammo = AmmoID.Bullet;              //The ammo class this ammo belongs to.
         }
@@ -30,10 +30,9 @@ namespace BecomeLegend.Items.Weapons
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.MusketBall, 50);
-            recipe.AddIngredient(mod.ItemType("ExampleItem"), 1);
-            recipe.AddTile(mod.TileType("ExampleWorkbench"));
-            recipe.SetResult(this, 50);
+            recipe.AddIngredient(ItemID.DirtBlock, 10);
+            recipe.AddTile(TileID.WorkBenches);
+            recipe.SetResult(this);
             recipe.AddRecipe();
         }
     }

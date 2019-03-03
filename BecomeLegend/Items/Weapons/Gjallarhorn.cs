@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace BecomeLegend.Items
+namespace BecomeLegend.Items.Weapons
 {
 	public class Gjallarhorn : ModItem
 	{
