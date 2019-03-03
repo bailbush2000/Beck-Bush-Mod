@@ -1,0 +1,3 @@
+author = BeckBush
+version = 0.1
+displayName = Become Legend
