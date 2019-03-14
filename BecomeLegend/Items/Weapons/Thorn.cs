@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,8 +15,8 @@ namespace BecomeLegend.Items.Weapons
 		{
 			item.damage = 50;
 			item.ranged = true;
-			item.width = 40;
-			item.height = 40;
+			item.width = 696;
+			item.height = 564;
 			item.useTime = 20;
 			item.useAnimation = 20;
 			item.useStyle = 5;
@@ -26,7 +27,8 @@ namespace BecomeLegend.Items.Weapons
             item.autoReuse = true;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
-            item.shoot = 10;
+            item.shoot = mod.ProjectileType("Primary");
+
             item.shootspeed = 16f;
 		}
 
