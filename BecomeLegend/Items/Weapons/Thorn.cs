@@ -3,12 +3,12 @@ using Terraria.ModLoader;
 
 namespace BecomeLegend.Items.Weapons
 {
-	public class Gjallarhorn : ModItem
+	public class Thorn : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Gjallarhorn");
-			Tooltip.SetDefault("This is a modded sword.");
+			DisplayName.SetDefault("Thorn");
+			Tooltip.SetDefault("This is a modded gun");
 		}
 		public override void SetDefaults()
 		{
