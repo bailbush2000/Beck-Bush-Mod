@@ -13,17 +13,21 @@ namespace BecomeLegend.Items.Weapons
 		public override void SetDefaults()
 		{
 			item.damage = 50;
-			item.melee = true;
+			item.ranged = true;
 			item.width = 40;
 			item.height = 40;
 			item.useTime = 20;
 			item.useAnimation = 20;
-			item.useStyle = 1;
-			item.knockBack = 6;
+			item.useStyle = 5;
+            item.noMelee = true;
+			item.knockBack = 4;
 			item.value = 10000;
 			item.rare = 2;
+            item.autoReuse = true;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
+            item.shoot = 10;
+            item.shootspeed = 16f;
 		}
 
 		public override void AddRecipes()

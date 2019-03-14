@@ -22,9 +22,8 @@ namespace BecomeLegend.Items.Weapons
             item.knockBack = 1.5f;
             item.value = 10;
             item.rare = 2;
-            item.shoot = 10;   //The projectile shoot when your weapon using this ammo
-            item.shootSpeed = 16f;                  //The speed of the projectile
-            item.ammo = AmmoID.Bullet;              //The ammo class this ammo belongs to.
+            item.shoot = mod.ProjectileType("Heavy");   //The projectile shoot when your weapon using this ammo
+            item.ammo = item.type;              //The ammo class this ammo belongs to.
         }
 
         public override void AddRecipes()
