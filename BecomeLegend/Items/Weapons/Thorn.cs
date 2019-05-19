@@ -27,7 +27,7 @@ namespace BecomeLegend.Items.Weapons
             item.autoReuse = true;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
-            item.shoot = mod.ProjectileType("Primary");
+            item.shoot = mod.ProjectileType("PrimaryP");
 
             item.shootSpeed = 16f;
 		}
