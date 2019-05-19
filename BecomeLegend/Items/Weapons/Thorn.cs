@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -27,8 +28,8 @@ namespace BecomeLegend.Items.Weapons
             item.autoReuse = true;
             item.UseSound = SoundID.Item1;
             item.autoReuse = true;
-            item.shoot = mod.ProjectileType("PrimaryP");
-
+            item.shoot = mod.ProjectileType("ThornP");
+            item.useAmmo = mod.ItemType("Primary");
             item.shootSpeed = 16f;
         }
 
@@ -39,14 +40,6 @@ namespace BecomeLegend.Items.Weapons
             recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(this);
             recipe.AddRecipe();
-        }
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-        {
-            if (type == mod.ProjectileType("PrimaryP")) // or ProjectileID.WoodenArrowFriendly
-            {
-                type = mod.ProjectileType("ThornP"); // or ProjectileID.FireArrow;
-            }
-            return true; // return true to allow tmodloader to call Projectile.NewProjectile as normal
         }
     }
 }
