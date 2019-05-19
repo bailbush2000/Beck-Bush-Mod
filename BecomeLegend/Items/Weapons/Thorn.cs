@@ -15,8 +15,8 @@ namespace BecomeLegend.Items.Weapons
 		{
 			item.damage = 50;
 			item.ranged = true;
-			item.width = 696;
-			item.height = 564;
+			item.width = 90;
+			item.height = 52;
 			item.useTime = 20;
 			item.useAnimation = 20;
 			item.useStyle = 5;
@@ -40,5 +40,11 @@ namespace BecomeLegend.Items.Weapons
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
-	}
+        public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
+        {
+            // Add Onfire buff to the NPC for 1 second
+            // 60 frames = 1 second
+            target.AddBuff(BuffID.Poisoned, 300);
+        }
+    }
 }
