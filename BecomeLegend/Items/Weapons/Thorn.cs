@@ -23,7 +23,7 @@ namespace BecomeLegend.Items.Weapons
             item.noMelee = true;
 			item.knockBack = 4;
 			item.value = 10000;
-			item.rare = 2;
+			item.rare = 4;
             item.autoReuse = true;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
