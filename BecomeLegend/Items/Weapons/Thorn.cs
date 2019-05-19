@@ -29,7 +29,7 @@ namespace BecomeLegend.Items.Weapons
 			item.autoReuse = true;
             item.shoot = mod.ProjectileType("Primary");
 
-            item.shootspeed = 16f;
+            item.shootSpeed = 16f;
 		}
 
 		public override void AddRecipes()
