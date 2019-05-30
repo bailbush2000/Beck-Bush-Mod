@@ -32,12 +32,6 @@ namespace BecomeLegend.Projectiles.Guns
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.AddBuff(20, 180, false);
-            if(random.Next(1,5) == 1)
-            {
-                target.AddBuff(117, 180, false);
-
-            }
-
         }
     }
 }

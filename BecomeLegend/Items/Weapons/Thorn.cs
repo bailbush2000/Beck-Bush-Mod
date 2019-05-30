@@ -41,5 +41,12 @@ namespace BecomeLegend.Items.Weapons
             recipe.SetResult(this);
             recipe.AddRecipe();
         }
+        public override void OnConsumeAmmo(Player player)
+        {
+            if (Main.rand.NextBool(5))
+            {
+                player.AddBuff(BuffID.Wrath, 180);
+            }
+        }
     }
 }
