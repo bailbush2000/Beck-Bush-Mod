@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace BecomeLegend.Projectiles.Guns
 {
-    public class ThunderlordP : ModProjectile
+    public class Heavy : ModProjectile
     {
         public override void SetStaticDefaults()
         {
