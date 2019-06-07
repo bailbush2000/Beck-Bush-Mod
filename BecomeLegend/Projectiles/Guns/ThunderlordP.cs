@@ -29,5 +29,9 @@ namespace BecomeLegend.Projectiles.Guns
             projectile.extraUpdates = 1;            //Set to above 0 if you want the projectile to update multiple time in a frame
             aiType = ProjectileID.Bullet;           //Act exactly like default Bullet
         }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            target.AddBuff(mod.BuffType("Lightning"), 30);
+        }
     }
 }
