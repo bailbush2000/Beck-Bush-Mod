@@ -31,6 +31,7 @@ namespace BecomeLegend.Projectiles.Guns
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
+            target.AddBuff(mod.BuffType("Lightning"), 300);
             if (Main.rand.Next(6) == 0)
             {
                 int dustnumber = Dust.NewDust(projectile.position, 100, 10, mod.DustType("LightningD"), 0f, 0f, 200, default(Color), 0.8f);
