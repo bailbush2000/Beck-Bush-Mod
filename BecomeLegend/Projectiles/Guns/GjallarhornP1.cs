@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace BecomeLegend.Projectiles.Guns
 {
-    public class PrimaryP : ModProjectile
+    public class ThornP : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -20,7 +20,7 @@ namespace BecomeLegend.Projectiles.Guns
             projectile.friendly = true;         //Can the projectile deal damage to enemies?
             projectile.hostile = false;         //Can the projectile deal damage to the player?
             projectile.ranged = true;           //Is the projectile shoot by a ranged weapon?
-            projectile.penetrate = 5;           //How many monsters the projectile can penetrate. (OnTileCollide below also decrements penetrate for bounces as well)
+            projectile.penetrate = 1;           //How many monsters the projectile can penetrate. (OnTileCollide below also decrements penetrate for bounces as well)
             projectile.timeLeft = 600;          //The live time for the projectile (60 = 1 second, so 600 is 10 seconds)
             projectile.alpha = 255;             //The transparency of the projectile, 255 for completely transparent. (aiStyle 1 quickly fades the projectile in)
             projectile.light = 0.5f;            //How much light emit around the projectile
@@ -32,7 +32,6 @@ namespace BecomeLegend.Projectiles.Guns
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.AddBuff(20, 180, false);
-
         }
     }
 }
