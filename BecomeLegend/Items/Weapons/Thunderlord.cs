@@ -35,7 +35,7 @@ namespace BecomeLegend.Items.Weapons
             item.UseSound = SoundID.Item1;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("ThunderlordP");
-            item.useAmmo = mod.ItemType("Primary");
+            item.useAmmo = mod.ItemType("Heavy");
             item.shootSpeed = 16f;
         }
        

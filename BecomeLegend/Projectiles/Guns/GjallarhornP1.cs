@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace BecomeLegend.Projectiles.Guns
 {
-    public class ThornP : ModProjectile
+    public class GjallarhornP1 : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -28,10 +28,6 @@ namespace BecomeLegend.Projectiles.Guns
             projectile.tileCollide = true;          //Can the projectile collide with tiles?
             projectile.extraUpdates = 1;            //Set to above 0 if you want the projectile to update multiple time in a frame
             aiType = ProjectileID.Bullet;           //Act exactly like default Bullet
-        }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            target.AddBuff(20, 180, false);
         }
     }
 }

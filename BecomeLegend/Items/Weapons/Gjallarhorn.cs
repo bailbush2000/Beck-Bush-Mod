@@ -5,11 +5,11 @@ using Terraria.ModLoader;
 
 namespace BecomeLegend.Items.Weapons
 {
-    public class Thorn : ModItem
+    public class Gjallarhorn : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Thorn");
+            DisplayName.SetDefault("Gjallarhorn");
             Tooltip.SetDefault("This is a modded gun");
         }
         public override void SetDefaults()
@@ -28,8 +28,8 @@ namespace BecomeLegend.Items.Weapons
             item.autoReuse = true;
             item.UseSound = SoundID.Item1;
             item.autoReuse = true;
-            item.shoot = mod.ProjectileType("ThornP");
-            item.useAmmo = mod.ItemType("Primary");
+            item.shoot = mod.ProjectileType("GjallarhornP1");
+            item.useAmmo = mod.ItemType("Heavy");
             item.shootSpeed = 16f;
         }
 
@@ -40,13 +40,6 @@ namespace BecomeLegend.Items.Weapons
             recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(this);
             recipe.AddRecipe();
-        }
-        public override void OnConsumeAmmo(Player player)
-        {
-            if (Main.rand.NextBool(5))
-            {
-                player.AddBuff(BuffID.Wrath, 180);
-            }
         }
     }
 }
