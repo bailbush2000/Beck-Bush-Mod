@@ -30,8 +30,33 @@ namespace BecomeLegend.Projectiles.Guns
             projectile.light = 0f;            //How much light emit around the projectile
             projectile.ignoreWater = true;          //Does the projectile's speed be influenced by water?
             projectile.tileCollide = true;
-            aiType = 207;
-            projectile.aiStyle = 1;//Can the projectile collide with tiles?         //Act exactly like default Bullet
+        }
+        public override void AI()
+        {
+            for(int k = 0; k < 200; k++) {
+                if (Main.npc[k].active && !Main.npc[k].dontTakeDamage && !Main.npc[k].friendly && Main.npc[k].lifeMax > 5)
+                {
+                    //Get the shoot trajectory from the projectile and target
+                    float shootToX = Main.npc[k].position.X + (float)Main.npc[k].width * 0.5f - projectile.Center.X;
+                    float shootToY = Main.npc[k].position.Y - projectile.Center.Y;
+                    float distance = (float)System.Math.Sqrt((double)(shootToX * shootToX + shootToY * shootToY));
+
+                    //If the distance between the live targeted npc and the projectile is less than 480 pixels
+                    if (distance < 480f && !Main.npc[k].friendly && Main.npc[k].active)
+                    {
+                        //Divide the factor, 3f, which is the desired velocity
+                        distance = 3f / distance;
+
+                        //Multiply the distance by a multiplier if you wish the projectile to have go faster
+                        shootToX *= distance * 5;
+                        shootToY *= distance * 5;
+
+                        //Set the velocities to the shoot values
+                        projectile.velocity.X = shootToX;
+                        projectile.velocity.Y = shootToY;
+                    }
+                }
+            }
         }
     }
 }
