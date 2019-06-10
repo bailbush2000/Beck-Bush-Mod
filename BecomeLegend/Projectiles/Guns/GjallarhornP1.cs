@@ -30,6 +30,19 @@ namespace BecomeLegend.Projectiles.Guns
             projectile.light = 0f;            //How much light emit around the projectile
             projectile.ignoreWater = true;          //Does the projectile's speed be influenced by water?
             projectile.tileCollide = true;
+
+        }
+        public void Kill()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                // Calculate new speeds for other projectiles.
+                // Rebound at 40% to 70% speed, plus a random amount between -8 and 8
+                float speedX = -projectile.velocity.X * Main.rand.NextFloat(.4f, .7f) + Main.rand.NextFloat(-8f, 8f);
+                float speedY = -projectile.velocity.Y * Main.rand.Next(40, 70) * 0.01f + Main.rand.Next(-20, 21) * 0.4f; // This is Vanilla code, a little more obscure.
+                int GjallahornP2 = mod.ProjectileType("GjallahornP2");                                                                                                          // Spawn the Projectile.
+                Projectile.NewProjectile(projectile.position.X + speedX, projectile.position.Y + speedY, speedX, speedY, GjallahornP2, (int)(projectile.damage * 0.5), 0f, projectile.owner, 0f, 0f);
+            }
         }
         public override void AI()
         {
@@ -57,6 +70,7 @@ namespace BecomeLegend.Projectiles.Guns
                     }
                 }
             }
+           
         }
     }
 }
