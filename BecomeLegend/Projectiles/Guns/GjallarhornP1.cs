@@ -12,6 +12,7 @@ namespace BecomeLegend.Projectiles.Guns
 {
     public class GjallarhornP1 : ModProjectile
     {
+       
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("English Display Name Here");
@@ -43,23 +44,18 @@ namespace BecomeLegend.Projectiles.Guns
                 Projectile.NewProjectile(projectile.position.X + speedX, projectile.position.Y + speedY, speedX, speedY, mod.ProjectileType("GjallarhornP2"), (int)(projectile.damage * 0.5), 0f, projectile.owner, 0f, 0f);
             }
         }
+
         public override void AI()
         {
-            if (projectile.alpha > 70)
-            {
-                projectile.alpha -= 15;
-                if (projectile.alpha < 70)
-                {
-                    projectile.alpha = 70;
-                }
-            }
+            
+          
             if (projectile.localAI[0] == 0f)
             {
                 AdjustMagnitude(ref projectile.velocity);
                 projectile.localAI[0] = 1f;
             }
             Vector2 move = Vector2.Zero;
-            float distance = 400f;
+            float distance = 600f;
             bool target = false;
             for (int k = 0; k < 200; k++)
             {
@@ -78,16 +74,17 @@ namespace BecomeLegend.Projectiles.Guns
             if (target)
             {
                 AdjustMagnitude(ref move);
-                projectile.velocity = (10 * projectile.velocity + move) / 11f;
+                projectile.velocity = (20 * projectile.velocity + move) / 11f;
                 AdjustMagnitude(ref projectile.velocity);
             }
-            }
+            
+        }
         private void AdjustMagnitude(ref Vector2 vector)
         {
             float magnitude = (float)Math.Sqrt(vector.X * vector.X + vector.Y * vector.Y);
-            if (magnitude > 6f)
+            if (magnitude > 20f)
             {
-                vector *= 6f / magnitude;
+                vector *= 20f / magnitude;
             }
         }
     }
