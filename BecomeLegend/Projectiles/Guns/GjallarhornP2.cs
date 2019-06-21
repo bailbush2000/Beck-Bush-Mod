@@ -60,7 +60,7 @@ namespace BecomeLegend.Projectiles.Guns
             if (target)
             {
                 AdjustMagnitude(ref move);
-                projectile.velocity = (20 * projectile.velocity + move) / 11f;
+                projectile.velocity = (11 * projectile.velocity + move) / 10f;
                 AdjustMagnitude(ref projectile.velocity);
             }
             

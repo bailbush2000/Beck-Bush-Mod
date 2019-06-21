@@ -35,13 +35,74 @@ namespace BecomeLegend.Projectiles.Guns
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 11; i++)
             {
-                // Calculate new speeds for other projectiles.
-                // Rebound at 40% to 70% speed, plus a random amount between -8 and 8
-                float speedX = -projectile.velocity.X * Main.rand.NextFloat(.4f, .7f) + Main.rand.NextFloat(-8f, 8f);
-                float speedY = -projectile.velocity.Y * Main.rand.Next(40, 70) * 0.01f + Main.rand.Next(-20, 21) * 0.4f; // This is Vanilla code, a little more obscure.                                                                                                         // Spawn the Projectile.
-                Projectile.NewProjectile(projectile.position.X + speedX, projectile.position.Y + speedY, speedX, speedY, mod.ProjectileType("GjallarhornP2"), (int)(projectile.damage * 0.5), 0f, projectile.owner, 0f, 0f);
+                if (i == 1)
+                {
+                    float speedX = -projectile.velocity.X + 3f;
+                    float speedY = -projectile.velocity.Y - 15f; // This is Vanilla code, a little more obscure.                                                                                                         // Spawn the Projectile.
+                    Projectile.NewProjectile(projectile.position.X + speedX, projectile.position.Y + speedY, speedX, speedY, mod.ProjectileType("GjallarhornP2"), (int)(projectile.damage * 0.5), 0f, projectile.owner, 0f, 0f);
+                }
+                if (i == 2)
+                {
+                    float speedX = -projectile.velocity.X + 6f;
+                    float speedY = -projectile.velocity.Y - -12f; // This is Vanilla code, a little more obscure.                                                                                                         // Spawn the Projectile.
+                    Projectile.NewProjectile(projectile.position.X + speedX, projectile.position.Y + speedY, speedX, speedY, mod.ProjectileType("GjallarhornP2"), (int)(projectile.damage * 0.5), 0f, projectile.owner, 0f, 0f);
+                }
+                if (i == 3)
+                {
+                    float speedX = -projectile.velocity.X + 9f;
+                    float speedY = -projectile.velocity.Y - 9f; // This is Vanilla code, a little more obscure.                                                                                                         // Spawn the Projectile.
+                    Projectile.NewProjectile(projectile.position.X + speedX, projectile.position.Y + speedY, speedX, speedY, mod.ProjectileType("GjallarhornP2"), (int)(projectile.damage * 0.5), 0f, projectile.owner, 0f, 0f);
+                }
+                if (i == 4)
+                {
+                    float speedX = -projectile.velocity.X + 12f;
+                    float speedY = -projectile.velocity.Y - 6f; // This is Vanilla code, a little more obscure.                                                                                                         // Spawn the Projectile.
+                    Projectile.NewProjectile(projectile.position.X + speedX, projectile.position.Y + speedY, speedX, speedY, mod.ProjectileType("GjallarhornP2"), (int)(projectile.damage * 0.5), 0f, projectile.owner, 0f, 0f);
+                }
+                if (i == 5)
+                {
+                    float speedX = -projectile.velocity.X + 15f;
+                    float speedY = -projectile.velocity.Y - 3f; // This is Vanilla code, a little more obscure.                                                                                                         // Spawn the Projectile.
+                    Projectile.NewProjectile(projectile.position.X + speedX, projectile.position.Y + speedY, speedX, speedY, mod.ProjectileType("GjallarhornP2"), (int)(projectile.damage * 0.5), 0f, projectile.owner, 0f, 0f);
+                }
+                if (i == 6)
+                {
+                    float speedX = -projectile.velocity.X + 18f;
+                    float speedY = -projectile.velocity.Y + 0f; // This is Vanilla code, a little more obscure.                                                                                                         // Spawn the Projectile.
+                    Projectile.NewProjectile(projectile.position.X + speedX, projectile.position.Y + speedY, speedX, speedY, mod.ProjectileType("GjallarhornP2"), (int)(projectile.damage * 0.5), 0f, projectile.owner, 0f, 0f);
+                }
+                if (i == 7)
+                {
+                    float speedX = -projectile.velocity.X + 15f;
+                    float speedY = -projectile.velocity.Y + 3f; // This is Vanilla code, a little more obscure.                                                                                                         // Spawn the Projectile.
+                    Projectile.NewProjectile(projectile.position.X + speedX, projectile.position.Y + speedY, speedX, speedY, mod.ProjectileType("GjallarhornP2"), (int)(projectile.damage * 0.5), 0f, projectile.owner, 0f, 0f);
+                }
+                if (i == 8)
+                {
+                    float speedX = -projectile.velocity.X + 12f;
+                    float speedY = -projectile.velocity.Y + 6f; // This is Vanilla code, a little more obscure.                                                                                                         // Spawn the Projectile.
+                    Projectile.NewProjectile(projectile.position.X + speedX, projectile.position.Y + speedY, speedX, speedY, mod.ProjectileType("GjallarhornP2"), (int)(projectile.damage * 0.5), 0f, projectile.owner, 0f, 0f);
+                }
+                if (i == 9)
+                {
+                    float speedX = -projectile.velocity.X + 9f;
+                    float speedY = -projectile.velocity.Y + 9f; // This is Vanilla code, a little more obscure.                                                                                                         // Spawn the Projectile.
+                    Projectile.NewProjectile(projectile.position.X + speedX, projectile.position.Y + speedY, speedX, speedY, mod.ProjectileType("GjallarhornP2"), (int)(projectile.damage * 0.5), 0f, projectile.owner, 0f, 0f);
+                }
+                if (i == 10)
+                {
+                    float speedX = -projectile.velocity.X + 6f;
+                    float speedY = -projectile.velocity.Y + 12f; // This is Vanilla code, a little more obscure.                                                                                                         // Spawn the Projectile.
+                    Projectile.NewProjectile(projectile.position.X + speedX, projectile.position.Y + speedY, speedX, speedY, mod.ProjectileType("GjallarhornP2"), (int)(projectile.damage * 0.5), 0f, projectile.owner, 0f, 0f);
+                }
+                if (i == 5)
+                {
+                    float speedX = -projectile.velocity.X + 3f;
+                    float speedY = -projectile.velocity.Y + 15f; // This is Vanilla code, a little more obscure.                                                                                                         // Spawn the Projectile.
+                    Projectile.NewProjectile(projectile.position.X + speedX, projectile.position.Y + speedY, speedX, speedY, mod.ProjectileType("GjallarhornP2"), (int)(projectile.damage * 0.5), 0f, projectile.owner, 0f, 0f);
+                }
             }
         }
 
