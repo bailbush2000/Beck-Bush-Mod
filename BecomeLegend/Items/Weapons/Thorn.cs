@@ -26,7 +26,6 @@ namespace BecomeLegend.Items.Weapons
             item.value = 10000;
             item.rare = 4;
             item.autoReuse = true;
-            item.autoReuse = true;
             item.shoot = mod.ProjectileType("ThornP");
             item.useAmmo = mod.ItemType("Primary");
             item.shootSpeed = 16f;

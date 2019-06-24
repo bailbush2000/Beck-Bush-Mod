@@ -10,7 +10,7 @@ namespace BecomeLegend.Items.Weapons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Gjallarhorn");
-            Tooltip.SetDefault("\"If there is beauty in destruction, why not also in its delivery ? \" —Feizel Crux");
+            Tooltip.SetDefault("This is a modded gun");
         }
         public override void SetDefaults()
         {
@@ -26,11 +26,18 @@ namespace BecomeLegend.Items.Weapons
             item.value = 10000;
             item.rare = 4;
             item.autoReuse = true;
-            item.UseSound = SoundID.Item1;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("GjallarhornP1");
             item.useAmmo = mod.ItemType("Heavy");
             item.shootSpeed = 16f;
+        }
+        public override void OnConsumeAmmo(Player player)
+        {
+            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/GjallahornS"));
+            if (Main.rand.NextBool(5))
+            {
+                player.AddBuff(BuffID.Wrath, 180);
+            }
         }
 
         public override void AddRecipes()

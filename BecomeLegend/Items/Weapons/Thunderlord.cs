@@ -11,12 +11,12 @@ namespace BecomeLegend.Items.Weapons
     {
         double oldTime = Main.time;
         int i = 1;
-        int k = 1;
+
        
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Thunderlord");
-            Tooltip.SetDefault("They rest quiet on fields afar…for this is no ending, but the eye.");
+            Tooltip.SetDefault("This is a modded gun");
         }
         public override void SetDefaults()
         {
@@ -31,7 +31,6 @@ namespace BecomeLegend.Items.Weapons
             item.knockBack = 4;
             item.value = 10000;
             item.rare = 4;
-            item.autoReuse = true;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("ThunderlordP");
             item.useAmmo = mod.ItemType("Heavy");
@@ -49,25 +48,22 @@ namespace BecomeLegend.Items.Weapons
         public override void OnConsumeAmmo(Player player)
         {
             Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/ThunderlordS"));
-            double currentTime = Main.time;
-            if ((currentTime - oldTime) > 120)
+            if (Main.rand.NextBool(5))
+            {
+                player.AddBuff(BuffID.Wrath, 180);
+            }
+        double currentTime = Main.time;
+            if (currentTime - oldTime > 240)
             {
                 item.useTime = 20;
                 i = 1;
-                k = 1;
             }
-            if (k % 2 != 0)
+            if (i < 19)
             {
                 ++i;
-                if (i > 15)
-                {
-                    i = 15;
-                }
             }
-
             item.useTime = 20 - i;
             oldTime = Main.time;
-            k += 1;
         }
     }
 }
