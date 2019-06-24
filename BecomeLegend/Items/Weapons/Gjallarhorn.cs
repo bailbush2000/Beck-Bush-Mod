@@ -10,7 +10,7 @@ namespace BecomeLegend.Items.Weapons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Gjallarhorn");
-            Tooltip.SetDefault("This is a modded gun");
+            Tooltip.SetDefault("\"If there is beauty in destruction, why not also in its delivery ? \" —Feizel Crux");
         }
         public override void SetDefaults()
         {

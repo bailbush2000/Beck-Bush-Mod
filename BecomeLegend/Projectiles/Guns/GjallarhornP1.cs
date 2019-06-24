@@ -20,8 +20,8 @@ namespace BecomeLegend.Projectiles.Guns
 
         public override void SetDefaults()
         {
-            projectile.width = 20;               //The width of projectile hitbox
-            projectile.height = 20;              //The height of projectile hitbox          //The ai style of the projectile, please reference the source code of Terraria
+            projectile.width = 100;               //The width of projectile hitbox
+            projectile.height = 40;              //The height of projectile hitbox          //The ai style of the projectile, please reference the source code of Terraria
             projectile.friendly = true;         //Can the projectile deal damage to enemies?
             projectile.hostile = false;         //Can the projectile deal damage to the player?
             projectile.ranged = true;           //Is the projectile shoot by a ranged weapon?
@@ -47,8 +47,8 @@ namespace BecomeLegend.Projectiles.Guns
 
         public override void AI()
         {
-            
-          
+            projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(90f);
+
             if (projectile.localAI[0] == 0f)
             {
                 AdjustMagnitude(ref projectile.velocity);

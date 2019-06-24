@@ -33,8 +33,8 @@ namespace BecomeLegend.Projectiles.Guns
         }
         public override void AI()
         {
+            projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(90f);
 
-        
             if (projectile.localAI[0] == 0f)
             {
                 AdjustMagnitude(ref projectile.velocity);
