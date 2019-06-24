@@ -44,22 +44,13 @@ namespace BecomeLegend.Projectiles.Guns
 
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                // Calculate new speeds for other projectiles.
-                // Rebound at 40% to 70% speed, plus a random amount between -8 and 8
-                float speedX = -projectile.velocity.X * Main.rand.NextFloat(.4f, .7f) + Main.rand.NextFloat(-8f, 8f);
-                float speedY = -projectile.velocity.Y * Main.rand.Next(40, 70) * 0.01f + Main.rand.Next(-20, 21) * 0.4f; // This is Vanilla code, a little more obscure.                                                                                                         // Spawn the Projectile.
-                Projectile.NewProjectile(projectile.position.X + speedX, projectile.position.Y + speedY, speedX, speedY, mod.ProjectileType("GjallarhornP2"), (int)(projectile.damage * 0.5), 0f, projectile.owner, 0f, 0f);
-            }
-        }
+
         public override void Kill(int timeLeft)
         {
             // If we are the original projectile, spawn the 5 child projectiles
             if (projectile.ai[1] == 0)
             {
+                Main.PlaySound(SoundID.Item14);
                 for (int i = 0; i < 10; i++)
                 {
                     // Random upward vector.
