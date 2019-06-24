@@ -10,7 +10,7 @@ namespace BecomeLegend.Items.Weapons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Thorn");
-            Tooltip.SetDefault("This is a modded gun");
+            Tooltip.SetDefault("\"To rend one's enemies is to see them not as equals, but objects—hollow of spirit and meaning.\" —13th Understanding, 7th Book of Sorrow");
         }
         public override void SetDefaults()
         {
@@ -18,15 +18,14 @@ namespace BecomeLegend.Items.Weapons
             item.ranged = true;
             item.width = 90;
             item.height = 52;
-            item.useTime = 20;
-            item.useAnimation = 20;
+            item.useTime = 24;
+            item.useAnimation = 24;
             item.useStyle = 5;
             item.noMelee = true;
             item.knockBack = 4;
             item.value = 10000;
             item.rare = 4;
             item.autoReuse = true;
-            item.UseSound = SoundID.Item1;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("ThornP");
             item.useAmmo = mod.ItemType("Primary");
@@ -43,6 +42,7 @@ namespace BecomeLegend.Items.Weapons
         }
         public override void OnConsumeAmmo(Player player)
         {
+            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/ThornS"));
             if (Main.rand.NextBool(5))
             {
                 player.AddBuff(BuffID.Wrath, 180);
