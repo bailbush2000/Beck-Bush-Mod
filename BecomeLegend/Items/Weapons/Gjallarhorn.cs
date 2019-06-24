@@ -18,8 +18,8 @@ namespace BecomeLegend.Items.Weapons
             item.ranged = true;
             item.width = 90;
             item.height = 52;
-            item.useTime = 20;
-            item.useAnimation = 20;
+            item.useTime = 120;
+            item.useAnimation = 30;
             item.useStyle = 5;
             item.noMelee = true;
             item.knockBack = 4;
