@@ -15,8 +15,8 @@ namespace BecomeLegend.Items.Weapons
         {
             item.damage = 1;
             item.ranged = true;
-            item.width = 8;
-            item.height = 8;
+            item.width = 40;
+            item.height = 30;
             item.maxStack = 1000;
             item.consumable = true;             //You need to set the item consumable so that the ammo would automatically consumed
             item.knockBack = 1.5f;
