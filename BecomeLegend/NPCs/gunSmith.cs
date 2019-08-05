@@ -48,6 +48,44 @@ namespace BecomeLegend.NPCs
             animationType = NPCID.Guide;
         }
 
+        public override string TownNPCName()
+        {
+            switch (WorldGen.genRand.Next(4))
+            {
+                case 0:
+                    return "Someone";
+                case 1:
+                    return "Somebody";
+                case 2:
+                    return "Blocky";
+                default:
+                    return "Colorless";
+            }
+        }
+
+        public override string GetChat()
+        {
+            int partyGirl = NPC.FindFirstNPC(NPCID.PartyGirl);
+            if (partyGirl >= 0 && Main.rand.NextBool(4))
+            {
+                return "Can you please tell " + Main.npc[partyGirl].GivenName + " to stop decorating my house with colors?";
+            }
+            switch (Main.rand.Next(4))
+            {
+                case 0:
+                    return "Sometimes I feel like I'm different from everyone else here.";
+                case 1:
+                    return "What's your favorite color? My favorite colors are white and black.";
+                case 2:
+                    {
+                        // Main.npcChatCornerItem shows a single item in the corner, like the Angler Quest chat.
+                        return "Hey, if you find a backpack, I can upgrade it for you.";
+                    }
+                default:
+                    return "What? I don't have any arms or legs? Oh, don't be ridiculous!";
+            }
+        }
+
         public override void HitEffect(int hitDirection, double damage)
         {
             int num = npc.life > 0 ? 1 : 5;
@@ -55,6 +93,25 @@ namespace BecomeLegend.NPCs
             {
                 Dust.NewDust(npc.position, npc.width, npc.height, 42);
             }
+        }
+
+
+        public override void SetChatButtons(ref string button, ref string button2)
+        {
+            button = Language.GetTextValue("LegacyInterface.28");
+            button2 = "nothing";
+        }
+        public override void OnChatButtonClicked(bool firstButton, ref bool openShop)
+        {
+            if (firstButton)
+            {
+                openShop = true;
+            }
+        }
+        public override void SetupShop(Chest shop, ref int nextSlot)
+        {
+            shop.item[nextSlot].SetDefaults(mod.ItemType("Gjallahorn"));
+            nextSlot++;
         }
 
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)
@@ -80,23 +137,5 @@ namespace BecomeLegend.NPCs
             multiplier = 12f;
             randomOffset = 2f;
         }
-        public override void SetChatButtons(ref string button, ref string button2)
-        {
-            button = "Shop";
-        }
-        public void OnChatButtonsClicked(bool firstButton, ref bool shop)
-        {
-            if (firstButton)
-            {
-                shop = true;
-            }
-        }
-        public override void SetupShop(Chest shop, ref int nextSlot)
-        {
-            shop.item[nextSlot].SetDefaults(mod.ItemType("Gjallahorn"));
-            nextSlot++;
-        }
-
-
     }
 }
