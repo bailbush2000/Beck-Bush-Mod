@@ -80,7 +80,22 @@ namespace BecomeLegend.NPCs
             multiplier = 12f;
             randomOffset = 2f;
         }
-
+        public override void SetChatButtons(ref string button, ref string button2)
+        {
+            button = "Shop";
+        }
+        public void OnChatButtonsClicked(bool firstButton, ref bool shop)
+        {
+            if (firstButton)
+            {
+                shop = true;
+            }
+        }
+        public override void SetupShop(Chest shop, ref int nextSlot)
+        {
+            shop.item[nextSlot].SetDefaults(mod.ItemType("Gjallahorn"));
+            nextSlot++;
+        }
 
 
     }
